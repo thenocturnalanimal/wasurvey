@@ -1,0 +1,142 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Round 1</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script type="text/javascript" csrc="{% static 'tab.js' %}"></script>
+	<style>
+		#myImg {
+		    width: 30%;
+		    height: auto;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    transition: .3s;
+		}
+
+		#myImg:hover {
+		    opacity: 0.7;
+		}
+
+		/* The Modal (background) */
+		.modal2 {
+		    display: none; /* Hidden by default */
+		    position: fixed; /* Stay in place */
+		    z-index: 4; /* Sit on top */
+		    padding-top: 100px; /* Location of the box */
+		    left: 0;
+		    top: 0;
+		    width: 100%; /* Full width */
+		    height: 100%; /* Full height */
+		    overflow: auto; /* Enable scroll if needed */
+		    background-color: rgb(0,0,0); /* Fallback color */
+		    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content2 {
+		    margin: auto;
+		    display: block;
+		    width: 80%;
+		    max-width: 300px;
+		}
+
+		/* Caption of Modal Image */
+		#caption {
+		    margin: auto;
+		    display: block;
+		    width: 80%;
+		    max-width: 700px;
+		    text-align: center;
+		    color: #ccc;
+		    padding: 10px 0;
+		    height: 150px;
+		}
+
+		/* Add Animation */
+		.modal-content2, #caption {    
+		    -webkit-animation-name: zoom;
+		    -webkit-animation-duration: 0.6s;
+		    animation-name: zoom;
+		    animation-duration: 0.6s;
+		}
+
+		@-webkit-keyframes zoom {
+		    from {-webkit-transform:scale(0)} 
+		    to {-webkit-transform:scale(1)}
+		}
+
+		@keyframes zoom {
+		    from {transform:scale(0)} 
+		    to {transform:scale(1)}
+		}
+
+		/* The Close Button */
+		.closeimg {
+		    position: absolute;
+		    top: 15px;
+		    right: 35px;
+		    color: #f1f1f1;
+		    font-size: 40px;
+		    font-weight: bold;
+		    transition: 0.3s;
+		}
+
+		.closeimg:hover,.closeimg:focus {
+		   color: #bbb;
+		   text-decoration: none;
+		   cursor: pointer;
+		}
+	</style>
+</head>
+<body style="padding:20px;">
+<center>
+	<!-- Trigger the Modal -->
+	<img id="myImg" src="media/2.jpg" alt="Image ID 2" style="height:100%;max-height:100px;width:100%;max-width:100px;">
+	<div style="color:#ccc;">Click to view image</div>
+	<!-- The Modal -->
+	<div id="myModal2" class="modal2" style="display: none;">
+	    <span class="closeimg" onclick="document.getElementById('myModal2').style.display='none'">×</span>
+	    <img class="modal-content2" id="img02" src="https://www.w3schools.com/howto/img_snow.jpg">
+	    <div id="caption"></div>
+  	</div>
+	<script>
+		// Get the modal
+		var modal = document.getElementById('myModal2');
+
+		// Get the image and insert it inside the modal - use its "alt" text as a caption
+		var img = document.getElementById('myImg');
+		var modalImg = document.getElementById("img02");
+		var captionText = document.getElementById("caption");
+		img.onclick = function(){
+		    modal.style.display = "block";
+		    modalImg.src = this.src;
+		    captionText.innerHTML = this.alt;
+		}
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("closeimg")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		modal.style.display = "none";
+		}
+	</script>
+</center>
+	<form id="id-survey-data-form" method="post">
+		{% csrf_token %}
+		{% crispy form form.helper%}
+		<!--<button type="submit" css_class='btn-success'>SUBMIT</button>-->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script type="text/javascript" csrc="{% static 'tab.js' %}"></script>
+	</form>
+</body>
+</html>
