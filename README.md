@@ -14,5 +14,5 @@ Edit forms.py to change form view structure on the webpage, and views.py to chan
 
 To change the web page (except the form), go to templates/form.html in respective folders.
 
-To change image, go to templates/form.html (line 101). 
+To change image, go to templates/form.html (line 101). The images must be added to the media folder first.
 (Dynamic image changing not enabled yet.)
