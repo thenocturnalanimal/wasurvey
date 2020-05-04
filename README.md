@@ -12,6 +12,8 @@ Go to 127.0.0.1:8000/round1 for round 1 questionnaire. Similarly, for round 2 qu
 Edit forms.py to change form view structure on the webpage, and views.py to change response collection methods. 
 (These files are present in respective round1 or round2 folders.)
 
+Responses are saved in csv files in the main folder, named round1-responses.csv and round2-responses.csv, respectively.
+
 To change the web page (except the form), go to templates/form.html in respective folders.
 
 To change image, go to templates/form.html (line 101). The images must be added to the media folder first.
